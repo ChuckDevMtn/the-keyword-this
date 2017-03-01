@@ -1,19 +1,19 @@
 //We're in a job interview. Answer the following questions (try to not look at your notes unless you have to).
   // 1) What is the purpose of the 'this keyword'?
 
-      //Answer
+      // In JavaScript, "this" is the object that "owns" the JavaScript code. The value of this, when used in a function, is the object that "owns" the function. The value of this, when used in an object, is the object itself. The this keyword in an object constructor does not have a value.
 
   // 2) What are the four rules that govern what the 'this keyword' is bound to and describe each?
 
-      //Answer
+      //explict , implicit , window, new
 
   // 3) What is the difference between call and apply?
 
-      //Answer
+      //apply uses [] notation when invoked. I dont know excatly when  that is but there is a good reason for it
 
   // 4) What does .bind do?
 
-      //Answer
+      //bind basically makes a copy of of the value of a variable to be able to use it in a fallowing line of code.
 
 
 //Next Problem
@@ -23,7 +23,16 @@
   //email --> which is a string
   //getUsername --> which is a function that returns the current object's username property. *Don't use 'user' instead use the 'this' keyword*
 
-    //Code Here
+      var user = {
+
+        username:"string username",
+        email: "email string",
+        getUsername: function(){
+          return this.username
+        }
+      };
+
+user.getUsername();
 
 //Now, invoke the getUsername method and verify you got the username of the object and not anything else.
 
@@ -32,6 +41,17 @@
 
 
 // Write a constructor function, including method definitions, which will make the following function invocations function properly.
+
+  function Car(make,model,year){
+    this.make = make;
+    this.model= model;
+    this.year = year;
+    this.move = 0;
+  this.moveCar = function(){
+      return this.move += 10;
+  }
+
+  }
 
   //Function Invocations Here
 
@@ -81,4 +101,3 @@ var userName = getMyUsername(); //Fix this
 
 
 //Fix the getMyUsername invocation (stored in the userName variable, at the bottom of the above code) so that userName will be equal to 'iliketurtles'.
-
